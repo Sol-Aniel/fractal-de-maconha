@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 # criando os arrays de x e y para armazenar os valores
 x = [0]
 y = [0]
+maconha = Turtle()
 
 #loop para executar 50.000 vezes e a cada uma delas marcar um novo ponto
 for i in range(500000): 
