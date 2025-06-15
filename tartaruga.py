@@ -49,12 +49,30 @@ def ampliarImagem2(x, y):
     return x * 120, y * 120 - 500  
 
 # Loop de geração do fractal
-for _ in range(99999): 
-    p = random.randint(1, 100) #fator aleatório
-    x, y = calcBarnley2(p, x, y) #usando a segunda versão
-    sx, sy = ampliarImagem2(x, y)
-    t.goto(sx, sy)
-    t.dot(2)
+def drawSamambaia(t, x, y, recursao):
+    for _ in range(recursao): 
+        p = random.randint(1, 100) #fator aleatório
+        x, y = calcBarnley(p, x, y) 
+        sx, sy = ampliarImagem(x, y)
+        t.goto(sx, sy)
+        t.dot(2)
+
+def drawSamambaia2(t, x, y, recursao):
+    for _ in range(recursao): 
+        p = random.randint(1, 100) #fator aleatório
+        x, y = calcBarnley2(p, x, y) #usando a segunda versão
+        sx, sy = ampliarImagem2(x, y)
+        t.goto(sx, sy)
+        t.dot(2)
+
+i = int(input("Escolha a versão da Samambaia:\n(1) Original\n(2) Reformulada\n"))
+r = int(input("Insira recursão desejada: \n"))
+if i==1:
+    drawSamambaia(t,x,y,r)
+elif i==2:
+    drawSamambaia2(t,x,y,r)
+else:
+    drawSamambaia(t,x,y,r)
 
 screen.update()
 screen.mainloop()
